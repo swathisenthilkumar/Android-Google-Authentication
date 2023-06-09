@@ -24,5 +24,4 @@ steps:
        echo "----------Snyk Monitor-----------"
        ./snyk monitor --all-projects -d
        echo "----------Snyk Scanning-----------"
-        #./snyk test --all-projects -d
-       ./snyk test --configuration-attributes=buildtype:release,usage:java-runtime,mode:demo
+       ./snyk test --all-sub-projects
