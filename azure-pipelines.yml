@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Bash@3
+  displayName: "Snyk_SCA_Scanning"
+  inputs:
+    targetType: 'inline'
+    script: |
+       echo "----------Download Latest Snyk CLI-----------"
+       curl -Lo ./snyk "https://github.com/snyk/snyk/releases/download/v1.1159.0/snyk-linux"
+       chmod +x snyk
+       ls -lrt
+       echo "----------Authenticating Snyk-----------"
+       ./snyk auth $(snyk-token)
+       echo "----------Snyk Monitor-----------"
+       ./snyk monitor --all-projects
+       echo "----------Snyk Scanning-----------"
+       ./snyk test --all-projects
