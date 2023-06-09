@@ -29,7 +29,6 @@ jobs:
           curl -Lo ./snyk "https://github.com/snyk/snyk/releases/download/v1.1159.0/snyk-linux"
           chmod +x snyk
           chmod +x ./gradlew
-          rm -rf gradlew gradlew.bat
           ls -lrt
           echo "----------Authenticating Snyk-----------"
           ./snyk auth ${{secrets.SNYK_TOKEN}}
