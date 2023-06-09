@@ -18,6 +18,7 @@ steps:
        echo "----------Download Latest Snyk CLI-----------"
        curl -Lo ./snyk "https://github.com/snyk/snyk/releases/download/v1.1159.0/snyk-linux"
        chmod +x snyk
+       chmod +x ./gradlew
        ls -lrt
        echo "----------Authenticating Snyk-----------"
        ./snyk auth $(snyk-token)
