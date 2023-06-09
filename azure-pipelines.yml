@@ -22,6 +22,6 @@ steps:
        echo "----------Authenticating Snyk-----------"
        ./snyk auth $(snyk-token)
        echo "----------Snyk Monitor-----------"
-       ./snyk monitor --all-projects
+       ./snyk monitor --all-projects -d
        echo "----------Snyk Scanning-----------"
-       ./snyk test --all-projects
+       ./snyk test --all-projects -d
